@@ -23,7 +23,21 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+        <h3>单封发送测试：OK</h3>
+        {{ Form::open(array('action' => 'SendmailController@sendOne')) }}
+        {{ Form::label('email','E-Mail Address') }}
+        {{ Form::email('email') }}
+
+        {{ Form::submit('send')}}
+        {{ Form::close() }}
+
+        <h3>多封发送测试</h3>
+        {{ Form::open(array('action' => 'SendmailController@sendMany')) }}
+        {{ Form::label('email','E-Mail Address') }}
+        {{ Form::textarea('manyemail') }}
+
+        {{ Form::submit('send')}}
+        {{ Form::close() }}
 
         <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.js"></script>
         <script>window.jQuery || document.write('<script src="{{asset('assets/js/vendor/jquery.min.js')}}"><\/script>')</script>

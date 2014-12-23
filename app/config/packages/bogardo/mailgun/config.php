@@ -63,7 +63,7 @@ return array(
 	 * Specify an email address that receives all emails send with Mailgun
 	 * This email address will overwrite all email addresses within messages
 	 */
-	'catch_all' => "178399731@qq.com",
+	'catch_all' => "",
 
 
 	/**
@@ -77,5 +77,5 @@ return array(
 	 *
 	 * Note: Mailgun does charge your account for messages sent in test mode.
 	 */
-	'testmode' => true
+	'testmode' => false
 );

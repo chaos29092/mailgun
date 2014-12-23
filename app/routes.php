@@ -15,3 +15,6 @@ Route::get('/', function()
 {
 	return View::make('index');
 });
+
+Route::post('sendOne','SendmailController@sendOne');
+Route::post('sendOne','SendmailController@sendMany');
