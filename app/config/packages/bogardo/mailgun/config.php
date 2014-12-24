@@ -10,7 +10,7 @@ return array(
 	 */
 	'from' => array(
 		'address' => 'info@email.hanvymbh.com',
-		'name' => 'chaos'
+		'name' => 'Raymond'
 	),
 
 

@@ -23,21 +23,19 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <h3>单封发送测试：OK</h3>
-        {{ Form::open(array('action' => 'SendmailController@sendOne')) }}
-        {{ Form::label('email','E-Mail Address') }}
-        {{ Form::email('email') }}
+        <div class="container">
+        <h3>发送测试</h3>
+        {{ Form::open(array('action' => 'SendmailController@sendMany','role' => 'form')) }}
+        <div class="form-group">
+            {{ Form::label('email','输入要发送的email地址（如带名字，每行以 example example@qq.com 格式输入）') }}
+            {{ Form::textarea('manyemail',null,array('class' => 'form-control','row'=> '4')) }}
 
-        {{ Form::submit('send')}}
+
+        </div>
+        <button type="submit" class="btn btn-default">确认发送</button>
         {{ Form::close() }}
+        </div>
 
-        <h3>多封发送测试</h3>
-        {{ Form::open(array('action' => 'SendmailController@sendMany')) }}
-        {{ Form::label('email','E-Mail Address') }}
-        {{ Form::textarea('manyemail') }}
-
-        {{ Form::submit('send')}}
-        {{ Form::close() }}
 
         <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.js"></script>
         <script>window.jQuery || document.write('<script src="{{asset('assets/js/vendor/jquery.min.js')}}"><\/script>')</script>
