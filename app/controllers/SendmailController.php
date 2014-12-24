@@ -10,9 +10,14 @@ class SendEmail {
         );
         Mailgun::send(array('html' => 'emails.html.test', 'text' => 'emails.text.test'), $data, function($message)
         {
-            $ad = Input::get('manyemail');
-            $ad = explode("\r",$ad);
-            $message->to($ad, 'chaos')->subject('Welcome!');
+            $address = explode("\r",Input::get('manyemail'));
+            $subject = Input::get('subject');
+            $campaign = explode(",",Input::get('campaign'));
+            $tag = explode(",",Input::get('tag'));
+            $message->to($address, '%recipient_name%')
+                    ->subject($subject)
+                    ->campaign($campaign)
+                    ->tag($tag);
         });
     }
 }
