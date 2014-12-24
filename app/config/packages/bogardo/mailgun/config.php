@@ -77,5 +77,5 @@ return array(
 	 *
 	 * Note: Mailgun does charge your account for messages sent in test mode.
 	 */
-	'testmode' => true
+	'testmode' => false
 );
