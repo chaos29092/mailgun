@@ -1,18 +1,6 @@
 <?php
 use Mailgun\Mailgun;
 
-//工具函数，stdclass转数组
-function object_array($array) {
-    if(is_object($array)) {
-        $array = (array)$array;
-    } if(is_array($array)) {
-        foreach($array as $key=>$value) {
-            $array[$key] = object_array($value);
-        }
-    }
-    return $array;
-}
-
 class ApiController extends BaseController {
 
     public function test()
@@ -20,9 +8,17 @@ class ApiController extends BaseController {
         $mgClient = new Mailgun('key-42b2ca9deaeaa59566bc33a1c5462210');
         $domain = 'email.hanvymbh.com';
 
-        $result = $mgClient->get("$domain/campaigns/test/events", array('limit' => 100));
+        $result = $mgClient->get("$domain/campaigns/test/events", array('limit' => 50));
 
-        $data['result'] = object_array($result);
+        $httpResponseCode = $result->http_response_code;
+        $httpResponseBody = $result->http_response_body;
+
+        $logItems = $result->http_response_body;
+        $data['test'] = null ;
+        foreach($logItems as $logItem){
+            $data['test'] = $data['test'] . $logItem->recipient . "\n";
+        }
+
         return View::make('test',$data);
     }
 }
