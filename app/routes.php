@@ -19,4 +19,5 @@ Route::get('/', function()
 Route::post('sendMany','SendmailController@sendMany');
 
 //webhook
-Route::post('webhook/delivered','WebhookController@receive');
+//Route::post('webhook/delivered','WebhookController@delivered');
+Route::get('test','ApiController@test');

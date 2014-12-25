@@ -1,9 +1,9 @@
 <?php
 
-//队列任务 函数设置
-class Delivered {
+//队列任务 函数 主要逻辑在这里体现
+class Webhook {
 
-    public function receive()
+    public function delivered()
     {
         $data = array(
             'event' => Input::get('event'),
@@ -22,8 +22,8 @@ class Delivered {
 
 class WebhookController extends BaseController {
 
-    public function receive()
+    public function delivered()
     {
-        Queue::push('Delivered@receive');
+        Queue::push('Webhook@delivered');
     }
 }

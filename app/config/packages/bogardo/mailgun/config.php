@@ -25,13 +25,13 @@ return array(
 	 * Mailgun (private) API key
 	 *
 	 */
-	'api_key' => 'key-e7a2189e5b3aaa5466ec0f30badfb906',
+	'api_key' => 'key-42b2ca9deaeaa59566bc33a1c5462210',
 
 	/**
 	 * Mailgun public API key
 	 *
 	 */
-	'public_api_key' => 'pubkey-8b2fa675b45fd7dc42df8a13ad216605',
+	'public_api_key' => 'pubkey-cb357996bc10045b8dbe86d6d6d29325',
 
 	/**
 	 * Domain name registered with Mailgun
