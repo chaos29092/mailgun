@@ -21,6 +21,6 @@ Route::post('sendMany','SendmailController@sendMany');
 
 //营销活动
 Route::post('campaignslist','ApiController@campaigns');
-Route::post('campaignscreat','ApiController@campaignsCreat');
+Route::post('campaigncreat','ApiController@campaignCreat');
+Route::post('campaignUpdate','ApiController@campaignUpdate');
 Route::get('campaignDelete/{id}','ApiController@campaignDelete');
-Route::get('campaignDeleteOk/{id}','ApiController@campaignDelete');

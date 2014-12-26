@@ -23,7 +23,7 @@ class ApiController extends BaseController {
         return View::make('campaignslist',$data);
     }
 
-    public function campaignsCreat()
+    public function campaignCreat()
     {
         $mgClient = new Mailgun('key-42b2ca9deaeaa59566bc33a1c5462210');
         $domain = 'email.hanvymbh.com';
@@ -32,7 +32,7 @@ class ApiController extends BaseController {
         $id = Input::get('id');
         $result = $mgClient->post("$domain/campaigns", array('name' => $name,'id' => $id));
 
-        return Redirect::to('campaigns')->with('message','营销活动创建成功。');
+        return Redirect::to('campaigns')->with('message','营销任务创建成功。');
     }
 
     public function campaignDelete($id)
@@ -42,6 +42,18 @@ class ApiController extends BaseController {
 
         $result = $mgClient->delete("$domain/campaigns/$id");
 
-        return Redirect::to('campaigns')->with('message','营销活动删除成功。');
+        return Redirect::to('campaigns')->with('message','营销任务删除成功。');
+    }
+
+    public function campaignUpdate()
+    {
+        $mgClient = new Mailgun('key-42b2ca9deaeaa59566bc33a1c5462210');
+        $domain = 'email.hanvymbh.com';
+
+        $id = Input::get('id');
+        $name = Input::get('name');
+        $result = $mgClient->put("$domain/campaigns/$id",array('name'=> $name , 'id' => $id));
+
+        return Redirect::to('campaigns')->with('message','营销任务修改成功。');
     }
 }

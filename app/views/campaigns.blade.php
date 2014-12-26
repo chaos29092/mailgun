@@ -9,7 +9,7 @@
         @endif
 
         {{ Form::open(array('action' => 'ApiController@campaigns','role' => 'form', 'class' => 'form-inline')) }}
-        <h4>营销列表查询</h4>
+        <h4>营销任务查询</h4>
         <div class="form-group">
             {{ Form::label('skip','起始行') }}
             {{ Form::text('skip',0,array('class' => 'form-control','required')) }}
@@ -17,8 +17,8 @@
         <button type="submit" class="btn btn-default">查询</button>
         {{ Form::close() }}
 
-        {{ Form::open(array('action' => 'ApiController@campaignsCreat','role' => 'form', 'class' => 'form-inline')) }}
-        <h4>新建一个营销活动</h4>
+        {{ Form::open(array('action' => 'ApiController@campaignCreat','role' => 'form', 'class' => 'form-inline')) }}
+        <h4>新建一个营销任务</h4>
         <div class="form-group">
             {{ Form::label('name','活动名称：') }}
             {{ Form::text('name',null,array('class' => 'form-control','required')) }}
