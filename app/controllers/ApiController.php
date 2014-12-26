@@ -3,22 +3,45 @@ use Mailgun\Mailgun;
 
 class ApiController extends BaseController {
 
-    public function test()
+    public function campaigns()
     {
         $mgClient = new Mailgun('key-42b2ca9deaeaa59566bc33a1c5462210');
         $domain = 'email.hanvymbh.com';
 
-        $result = $mgClient->get("$domain/campaigns/test/events", array('limit' => 50));
+        $skip = Input::get('skip');
+        $result = $mgClient->get("$domain/campaigns", array('skip' => $skip,'limit' => 100));
 
         $httpResponseCode = $result->http_response_code;
         $httpResponseBody = $result->http_response_body;
 
-        $logItems = $result->http_response_body;
-        $data['test'] = null ;
-        foreach($logItems as $logItem){
-            $data['test'] = $data['test'] . $logItem->recipient . "\n";
-        }
+        $campaignsItems = $result->http_response_body->items;
+        $campaignsNumber = $result->http_response_body->total_count;
+        $data['campaigns'] = $campaignsItems;
+        $data['total'] = $campaignsNumber;
+        $data['skip'] = $skip;
 
-        return View::make('test',$data);
+        return View::make('campaignslist',$data);
+    }
+
+    public function campaignsCreat()
+    {
+        $mgClient = new Mailgun('key-42b2ca9deaeaa59566bc33a1c5462210');
+        $domain = 'email.hanvymbh.com';
+
+        $name = Input::get('name');
+        $id = Input::get('id');
+        $result = $mgClient->post("$domain/campaigns", array('name' => $name,'id' => $id));
+
+        return Redirect::to('campaigns')->with('message','营销活动创建成功。');
+    }
+
+    public function campaignDelete($id)
+    {
+        $mgClient = new Mailgun('key-42b2ca9deaeaa59566bc33a1c5462210');
+        $domain = 'email.hanvymbh.com';
+
+        $result = $mgClient->delete("$domain/campaigns/$id");
+
+        return Redirect::to('campaigns')->with('message','营销活动删除成功。');
     }
 }

@@ -11,13 +11,16 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('index');
-});
+Route::get('/', 'HomeController@index');
+Route::get('campaigns', 'HomeController@campaigns');
 
 Route::post('sendMany','SendmailController@sendMany');
 
 //webhook
 //Route::post('webhook/delivered','WebhookController@delivered');
-Route::get('test','ApiController@test');
+
+//营销活动
+Route::post('campaignslist','ApiController@campaigns');
+Route::post('campaignscreat','ApiController@campaignsCreat');
+Route::get('campaignDelete/{id}','ApiController@campaignDelete');
+Route::get('campaignDeleteOk/{id}','ApiController@campaignDelete');

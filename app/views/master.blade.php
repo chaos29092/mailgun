@@ -28,13 +28,38 @@
 <![endif]-->
 
 <!-- Add your site or application content here -->
+{{--导航条--}}
+<nav class="navbar" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Mailgun</a>
+        </div>
 
-<p>{{$test}}</p>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/">发邮件</a></li>
+                <li><a href="{{url('campaigns')}}">营销列表</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{{--content--}}
+@yield('content')
 
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.js"></script>
 <script>window.jQuery || document.write('<script src="{{asset('assets/js/vendor/jquery.min.js')}}"><\/script>')</script>
 <script src="{{asset('assets/js/plugins.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
+
 
 </body>
 </html>
