@@ -29,7 +29,7 @@
 
 <!-- Add your site or application content here -->
 {{--导航条--}}
-<nav class="navbar" role="navigation">
+<nav class="navbar navbar-inverse" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
