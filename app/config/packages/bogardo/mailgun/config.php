@@ -25,7 +25,7 @@ return array(
 	 * Mailgun (private) API key
 	 *
 	 */
-	'api_key' => 'key-42b2ca9deaeaa59566bc33a1c5462210',
+	'api_key' => '',
 
 	/**
 	 * Mailgun public API key
