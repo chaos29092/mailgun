@@ -45,7 +45,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/">发邮件</a></li>
+                <li><a href="{{url('/')}}">发邮件</a></li>
                 <li><a href="{{url('campaigns')}}">营销列表</a></li>
             </ul>
         </div>

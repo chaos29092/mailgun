@@ -10,7 +10,7 @@ return array(
 	 */
 	'from' => array(
 		'address' => 'info@email.hanvymbh.com',
-		'name' => 'Raymond'
+		'name' => 'Дима Song'
 	),
 
 
@@ -25,7 +25,7 @@ return array(
 	 * Mailgun (private) API key
 	 *
 	 */
-	'api_key' => '',
+	'api_key' => 'key-434df5cf145e7a76c58787a71fc4544b',
 
 	/**
 	 * Mailgun public API key

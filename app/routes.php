@@ -24,3 +24,9 @@ Route::post('campaignslist','ApiController@campaigns');
 Route::post('campaigncreat','ApiController@campaignCreat');
 Route::post('campaignUpdate','ApiController@campaignUpdate');
 Route::get('campaignDelete/{id}','ApiController@campaignDelete');
+
+//邮件模板
+Route::get('ru',function()
+{
+    return View::make('emails.html.ru');
+});
